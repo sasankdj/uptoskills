@@ -44,7 +44,7 @@ export default function Settings() {
         activePage="settings"
       />
 
-      <div className={`flex-1 flex flex-col overflow-hidden transition-all duration-300 ${
+      <div className={`flex-1 flex flex-col overflow-hidden transition-all duration-300 mt-3 ${
         sidebarCollapsed ? 'lg:ml-20' : 'lg:ml-80'
       }`}>
         <div className="flex flex-1 mt-15">
@@ -78,7 +78,7 @@ export default function Settings() {
         </aside>
 
         {/* Main Content */}
-        <main className="flex-1 p-8">
+        <main className="flex-1 p-8 mt-5">
           <div className="max-w-[896px]">
             {/* Header */}
             <div className="mb-8">

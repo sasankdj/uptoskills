@@ -1,9 +1,22 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 import AiPattern from "../assets/gradinet.jpg";
 export default function Index() {
+  const { login } = useAuth();
+  const navigate = useNavigate();
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [keepLoggedIn, setKeepLoggedIn] = useState(true);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // For demo purposes, login with dummy data
+    login({ email, name: 'User' }, keepLoggedIn);
+    navigate('/dashboard');
+  };
 
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
@@ -108,7 +121,7 @@ export default function Index() {
             </div>
 
             {/* Form */}
-            <div className="px-8 pb-8">
+            <form onSubmit={handleSubmit} className="px-8 pb-8">
               <div className="space-y-6">
                 {/* Email Input */}
                 <div>
@@ -119,6 +132,8 @@ export default function Index() {
                   </label>
                   <input
                     type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter your email address here"
                     className={`w-full h-[58px] px-4 rounded-xl border border-[#B3B3B3] text-lg font-medium leading-7 placeholder:font-medium ${
                       isDarkMode 
@@ -138,6 +153,8 @@ export default function Index() {
                   <div className="relative">
                     <input
                       type={isPasswordVisible ? "text" : "password"}
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
                       placeholder="••••••••••"
                       className={`w-full h-[58px] px-4 pr-12 rounded-xl border border-[#B3B3B3] text-lg font-medium leading-7 ${
                         isDarkMode 
@@ -184,7 +201,7 @@ export default function Index() {
                 </div>
 
                 {/* Login Button */}
-                <button className="w-full h-11 bg-gradient-to-r from-[#4CAF4F] to-[#45A049] border border-[#4CAF4F] rounded-xl text-white text-lg font-bold leading-7 hover:from-[#45A049] hover:to-[#3D8B40] transition-all">
+                <button type="submit" className="w-full h-11 bg-gradient-to-r from-[#4CAF4F] to-[#45A049] border border-[#4CAF4F] rounded-xl text-white text-lg font-bold leading-7 hover:from-[#45A049] hover:to-[#3D8B40] transition-all">
                   Log In
                 </button>
 
@@ -217,12 +234,12 @@ export default function Index() {
                   <span className={isDarkMode ? 'text-white' : 'text-[rgba(26,26,26,0.7)]'}>
                     Don't have an account?{' '}
                   </span>
-                  <button className="text-[#FF6D34] hover:underline">
+                  <button className="text-[#FF6D34] hover:underline" onClick={navigate('/signup')}>
                     Sign Up!
                   </button>
                 </div>
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </div>

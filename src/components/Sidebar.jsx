@@ -1,15 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
-import {
-  BarChart3,
-  BookOpen,
-  MessageCircle,
-  Settings,
-  Play,
-  ChevronRight,
-  ChevronLeft as ChevronLeftIcon
-} from 'lucide-react'
+import { ChevronRight } from 'lucide-react'
 
 const Sidebar = ({
   sidebarOpen,
@@ -29,37 +21,37 @@ const Sidebar = ({
   const navigationItems = [
     {
       id: 'dashboard',
-      icon: BarChart3,
+      icon: '/AI_Tutor_New_UI/Icons/dashboard.svg',
       label: 'Dashboard',
       path: '/dashboard'
     },
     {
       id: 'courses',
-      icon: BookOpen,
+      icon: '/AI_Tutor_New_UI/Icons/my_courses.svg',
       label: 'My Courses',
       path: '/courses'
     },
     {
       id: 'discussions',
-      icon: MessageCircle,
-      label: 'Discussion & Doubt Room',
+      icon: '/AI_Tutor_New_UI/Icons/discussion.svg',
+      label: 'Discussion ',
       path: '/discussions'
     },
     {
       id: 'analytics',
-      icon: BarChart3,
+      icon: '/AI_Tutor_New_UI/Icons/analytics.svg',
       label: 'Analytics',
       path: '/analytics'
     },
     {
       id: 'settings',
-      icon: Settings,
+      icon: '/AI_Tutor_New_UI/Icons/settings.svg',
       label: 'Settings',
       path: '/settings'
     },
     {
       id: 'watched',
-      icon: Play,
+      icon: '/AI_Tutor_New_UI/Icons/watched_vids.svg',
       label: 'Watched Videos',
       path: '/watchedvideos'
     }
@@ -97,7 +89,6 @@ const Sidebar = ({
         <nav className="mt-8 px-4">
           <div className="space-y-2">
             {navigationItems.map((item) => {
-              const Icon = item.icon
               const isActive = activePage === item.id
               return (
                 <div
@@ -110,7 +101,7 @@ const Sidebar = ({
                   tabIndex={0}
                   onKeyDown={(e) => { if (e.key === 'Enter') navigate(item.path) }}
                 >
-                  <Icon className="w-5 h-5 flex-shrink-0" />
+                  <img src={item.icon} className="w-5 h-5 flex-shrink-0" alt="" />
                   {!sidebarCollapsed && (
                     <span className={`ml-3 ${isActive ? 'font-medium' : ''}`}>{item.label}</span>
                   )}
