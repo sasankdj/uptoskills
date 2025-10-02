@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
-import { AuthProvider } from './context/AuthContext'
+import { AuthProvider, useAuth } from './context/AuthContext'
 import { ThemeProvider } from './context/ThemeContext'
 import ProtectedRoute from './components/ProtectedRoute'
 import LoginPage from './pages/LoginPage'
@@ -11,6 +11,18 @@ import CoursesPage from './pages/CoursesPage'
 import DiscussionsPage from './pages/DiscussionsPage'
 import Settings from './pages/Settings'
 import WatchedVideos from './pages/WatchedVideos'
+import CoursePreview from './pages/CoursePreview'
+import LearningPage from './pages/LearningPage'
+
+const RootRedirect = () => {
+  const { isAuthenticated } = useAuth();
+  return <Navigate to={isAuthenticated ? "/dashboard" : "/login"} replace />;
+};
+
+const PublicRoute = ({ children }) => {
+  const { isAuthenticated } = useAuth();
+  return isAuthenticated ? <Navigate to="/dashboard" replace /> : children;
+};
 
 const App = () => {
   return (
@@ -18,7 +30,7 @@ const App = () => {
       <AuthProvider>
         <Router>
           <Routes>
-            <Route path="/login" element={<LoginPage />} />
+            <Route path="/login" element={<PublicRoute><LoginPage /></PublicRoute>} />
             <Route path="/signup" element={<SignUpPage />} />
             <Route
               path="/dashboard"
@@ -68,7 +80,9 @@ const App = () => {
                 </ProtectedRoute>
               }
             />
-            <Route path="/" element={<Navigate to="/login" replace />} />
+            <Route path="/" element={<RootRedirect />} />
+            <Route path="/course-preview/:id" element={<CoursePreview />} />
+            <Route path="/learning/:id" element={<LearningPage />} />
           </Routes>
         </Router>
       </AuthProvider>

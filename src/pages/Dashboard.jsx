@@ -5,23 +5,17 @@ import Sidebar from '../components/Sidebar'
 import {
   Search,
   Bell,
-  ChevronLeft,
   BarChart3,
   BookOpen,
   MessageCircle,
   Settings,
   Play,
-  PlayCircle,
-  Clock,
-  CheckCircle,
-  Award,
-  Star,
-  Bookmark,
-  ChevronRight,
-  ChevronLeft as ChevronLeftIcon,
   Calendar,
   Menu,
-  X
+  X,
+  ChevronLeft,
+  ChevronRight,
+  ChevronLeft as ChevronLeftIcon
 } from 'lucide-react'
 
 const Dashboard = () => {
@@ -31,7 +25,7 @@ const Dashboard = () => {
 
   const statsCards = [
     {
-      icon: <PlayCircle className="w-5 h-5 text-blue-600" />,
+      icon: <img src="/AI_Tutor_New_UI/Icons/play_button.svg" alt="Ongoing Courses" className="w-5 h-5" />,
       value: "8",
       label: "Ongoing Courses",
       change: "+12%",
@@ -39,7 +33,7 @@ const Dashboard = () => {
       iconBg: "bg-blue-100"
     },
     {
-      icon: <CheckCircle className="w-5 h-5 text-green-600" />,
+      icon: <img src="/AI_Tutor_New_UI/Icons/completed.svg" alt="Completed" className="w-5 h-5" />,
       value: "24",
       label: "Completed",
       change: "+5",
@@ -47,7 +41,7 @@ const Dashboard = () => {
       iconBg: "bg-green-100"
     },
     {
-      icon: <Award className="w-5 h-5 text-purple-600" />,
+      icon: <img src="/AI_Tutor_New_UI/Icons/certificates.svg" alt="Certificates" className="w-5 h-5" />,
       value: "12",
       label: "Certificates",
       change: "+2",
@@ -55,7 +49,7 @@ const Dashboard = () => {
       iconBg: "bg-purple-100"
     },
     {
-      icon: <Clock className="w-5 h-5 text-orange-600" />,
+      icon: <img src="/AI_Tutor_New_UI/Icons/time_spent.svg" alt="Hours Spent" className="w-5 h-5" />,
       value: "142",
       label: "Hours Spent",
       change: "+18h",
@@ -220,10 +214,10 @@ const Dashboard = () => {
                           className="w-full h-40 object-cover"
                         />
                         <div className="absolute top-3 right-3 bg-white rounded-full p-1">
-                          <Bookmark className="w-4 h-4 text-teal-600" />
+                          <img src="/AI_Tutor_New_UI/Icons/bookmark.svg" alt="Bookmark" className="w-4 h-4 text-teal-600" />
                         </div>
                         <div className="absolute bottom-3 right-3 bg-white rounded-full px-2 py-1 flex items-center space-x-1">
-                          <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />
+                          <img src="/AI_Tutor_New_UI/Icons/star.svg" alt="Star" className="w-3 h-3" />
                           <span className="text-xs font-medium">{course.rating}</span>
                         </div>
                       </div>

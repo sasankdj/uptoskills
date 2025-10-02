@@ -45,7 +45,7 @@ export default function SignUpPage() {
       login({
         email,
         name: username,
-      });
+      }, false);
       navigate('/dashboard');
     } finally {
       setLoading(false);

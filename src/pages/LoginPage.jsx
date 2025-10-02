@@ -7,7 +7,7 @@ export default function Index() {
   const navigate = useNavigate();
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-  const [keepLoggedIn, setKeepLoggedIn] = useState(true);
+  const [keepLoggedIn, setKeepLoggedIn] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -234,7 +234,7 @@ export default function Index() {
                   <span className={isDarkMode ? 'text-white' : 'text-[rgba(26,26,26,0.7)]'}>
                     Don't have an account?{' '}
                   </span>
-                  <button className="text-[#FF6D34] hover:underline" onClick={navigate('/signup')}>
+                  <button className="text-[#FF6D34] hover:underline" onClick={() => navigate('/signup')}>
                     Sign Up!
                   </button>
                 </div>
