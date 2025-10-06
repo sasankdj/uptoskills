@@ -21,7 +21,7 @@ const WatchedVideos = () => {
       progress: 80,
       status: "in-progress",
       lastWatched: "2 days ago",
-      thumbnail: "https://api.builder.io/api/v1/image/assets/TEMP/3c1b1cddf6d011d32dbac83a32ab536bb8ac0e1a?width=775"
+      thumbnail: "/ui/watched-1.png"
     },
     {
       id: 2,
@@ -31,7 +31,7 @@ const WatchedVideos = () => {
       progress: 100,
       status: "completed",
       lastWatched: "1 week ago",
-      thumbnail: "https://api.builder.io/api/v1/image/assets/TEMP/0ce68369ebb26b2e1006ffe1740dc9af8be4e359?width=775"
+      thumbnail: "/ui/watched-2.png"
     },
     {
       id: 3,
@@ -41,7 +41,7 @@ const WatchedVideos = () => {
       progress: 33,
       status: "in-progress",
       lastWatched: "3 days ago",
-      thumbnail: "https://api.builder.io/api/v1/image/assets/TEMP/9078d248659038199714d38dfa9a6985e678e06b?width=775"
+      thumbnail: "/ui/watched-3.png"
     },
     {
       id: 4,
@@ -51,7 +51,7 @@ const WatchedVideos = () => {
       progress: 100,
       status: "completed",
       lastWatched: "5 days ago",
-      thumbnail: "https://api.builder.io/api/v1/image/assets/TEMP/01bde5841c319406fbb7c1e8e2308ba8d547e8fe?width=775"
+      thumbnail: "/ui/watched-4.png"
     },
     {
       id: 5,
@@ -61,7 +61,7 @@ const WatchedVideos = () => {
       progress: 60,
       status: "in-progress",
       lastWatched: "1 day ago",
-      thumbnail: "https://api.builder.io/api/v1/image/assets/TEMP/aee6dce86cf10b604f1cea78647040d013073dc5?width=775"
+      thumbnail: "/ui/watched-5.png"
     },
     {
       id: 6,
@@ -71,7 +71,7 @@ const WatchedVideos = () => {
       progress: 100,
       status: "completed",
       lastWatched: "1 week ago",
-      thumbnail: "https://api.builder.io/api/v1/image/assets/TEMP/3c3d8e2caf1ba4083b843a0404d5f1d1cbd47a9d?width=775"
+      thumbnail: "/ui/watched-6.png"
     }
   ];
 

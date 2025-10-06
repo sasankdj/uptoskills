@@ -43,7 +43,7 @@ const CoursesPage = () => {
       level: "Intermediate",
       levelColor: "bg-purple-100 text-purple-600",
       backgroundGradient: "from-slate-700 to-slate-900",
-      backgroundImage: "https://api.builder.io/api/v1/image/assets/TEMP/8a1ce58e3b5b16bcb77f71dcefa8c12f644ece71?width=774",
+      backgroundImage: "/ui/course-bg-1.png",
       buttonStyle: "bg-gradient-to-r from-teal-500 to-teal-600 text-white",
       buttonText: "Continue Learning"
     },
@@ -86,7 +86,7 @@ const CoursesPage = () => {
       price: "₹1999",
       rating: "4.8",
       students: "2.5k students",
-      image: "https://api.builder.io/api/v1/image/assets/TEMP/2aaccc55e94334649d90f9e6d127257ec3244255?width=556",
+      image: "AI_Tutor_New_UI/Dashboard/python_for_ai_logo.png",
       isBookmarked: true
     },
     {
@@ -99,7 +99,7 @@ const CoursesPage = () => {
       price: "₹1299",
       rating: "4.9",
       students: "2.5k students",
-      image: "https://api.builder.io/api/v1/image/assets/TEMP/48a4ebbd2d9ae0cf6583e6f73f499d35cbe9459d?width=556",
+      image: "AI_Tutor_New_UI/Dashboard/full_stack_web_dev.png",
       isBookmarked: false
     },
     {
@@ -112,7 +112,7 @@ const CoursesPage = () => {
       price: "₹1499",
       rating: "4.7",
       students: "2.5k students",
-      image: "https://api.builder.io/api/v1/image/assets/TEMP/a43372c170555e6a023b35b1a47f1690c1264081?width=556",
+      image: "AI_Tutor_New_UI/Dashboard/data_analytics.png",
       isBookmarked: false
     },
     {
@@ -125,7 +125,7 @@ const CoursesPage = () => {
       price: "₹1999",
       rating: "4.8",
       students: "2.5k students",
-      image: "https://api.builder.io/api/v1/image/assets/TEMP/2aaccc55e94334649d90f9e6d127257ec3244255?width=556",
+      image: "AI_Tutor_New_UI/Dashboard/ML_fundamentals.png",
       isBookmarked: true
     }
   ]

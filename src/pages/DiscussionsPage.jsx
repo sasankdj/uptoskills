@@ -21,12 +21,12 @@ const DiscussionsPage = () => {
 
   const tabs = ['Recent', 'Unanswered', 'My Doubts', 'Popular']
 
-  const discussions = [
+  const initialDiscussions = [
     {
       id: 1,
       user: {
         name: "Alex Chen",
-        avatar: "https://api.builder.io/api/v1/image/assets/TEMP/7c84a70c06637d058d5e659eb6820b77da913536?width=80",
+        avatar: "AI_Tutor_New_UI/Discussion_Room/alexchen.jpg",
         level: "Beginner",
         levelColor: "bg-blue-100 text-blue-800"
       },
@@ -43,7 +43,7 @@ const DiscussionsPage = () => {
         {
           user: {
             name: "Sarah Kim",
-            avatar: "https://api.builder.io/api/v1/image/assets/TEMP/4bcf0d26f759697db55a66cc6e24e1a92a62262c?width=64",
+            avatar: "/ui/avatar-2.png",
             level: "Expert",
             levelColor: "bg-green-100 text-green-800"
           },
@@ -57,7 +57,7 @@ const DiscussionsPage = () => {
       id: 2,
       user: {
         name: "Mike Johnson",
-        avatar: "https://api.builder.io/api/v1/image/assets/TEMP/e92ed6e3eaef73965d7d01f4a96b75947fcfddf0?width=80",
+        avatar: "/ui/avatar-3.png",
         level: "Intermediate",
         levelColor: "bg-yellow-100 text-yellow-800"
       },
@@ -70,13 +70,15 @@ const DiscussionsPage = () => {
     }
   ]
 
+  const [discussions, setDiscussions] = useState(initialDiscussions)
+
   const myCourses = [
     {
       title: "React Fundamentals",
       subtitle: "Lesson 18: State Management",
       progress: 75,
       lessons: "18/24",
-      image: "https://api.builder.io/api/v1/image/assets/TEMP/759bd5a1c9f0e18238879f6662fb5ecbe704c4bd?width=176",
+      image: "AI_Tutor_New_UI/Discussion_Room/react_fundamentals.png",
       progressColor: "bg-indigo-600",
       isActive: true
     },
@@ -85,7 +87,7 @@ const DiscussionsPage = () => {
       subtitle: "Lesson 9: Neural Networks",
       progress: 45,
       lessons: "9/20",
-      image: "https://api.builder.io/api/v1/image/assets/TEMP/6af09341686ab5d69bd2cda3259cb7e6e6dd600e?width=176",
+      image: "AI_Tutor_New_UI/Discussion_Room/python_for_ai.png",
       progressColor: "bg-purple-600",
       isActive: false
     },
@@ -94,16 +96,34 @@ const DiscussionsPage = () => {
       subtitle: "Lesson 27: SEO Optimization",
       progress: 90,
       lessons: "27/30",
-      image: "https://api.builder.io/api/v1/image/assets/TEMP/9b8b3d84a8b5e19e095ed99748c48fe7e59493d8?width=176",
+      image: "AI_Tutor_New_UI/Discussion_Room/digital_marketing.png",
       progressColor: "bg-cyan-600",
       isActive: false
     }
   ]
 
   const handleSubmitQuestion = (e) => {
-    e.preventDefault()
-    // Handle question submission logic here
-    console.log('Question submitted:', { questionTitle, questionDescription })
+    e.preventDefault();
+    if (!questionTitle.trim() || !questionDescription.trim()) return;
+
+    const newQuestion = {
+      id: Date.now(),
+      user: {
+        name: "Eliza Chris", // Placeholder for the current user
+        avatar: "/ui/avatar-4.png",
+        level: "Beginner",
+        levelColor: "bg-blue-100 text-blue-800",
+      },
+      timeAgo: "Just now",
+      title: questionTitle,
+      description: questionDescription,
+      likes: 0,
+      replies: 0,
+      hasAISuggestion: false,
+      responses: [],
+    };
+
+    setDiscussions([newQuestion, ...discussions]);
     setQuestionTitle('')
     setQuestionDescription('')
   }
@@ -285,7 +305,7 @@ const DiscussionsPage = () => {
                   {/* Reply Input */}
                   <div className="ml-4 sm:ml-8 flex items-start space-x-3">
                     <img
-                      src="https://api.builder.io/api/v1/image/assets/TEMP/489c0bbf993f7c468db3540d2ff08b89697c6fde?width=64"
+                      src="/ui/avatar-4.png"
                       alt="Your avatar"
                       className="w-6 h-6 sm:w-8 sm:h-8 rounded-full flex-shrink-0"
                     />
@@ -324,7 +344,7 @@ const DiscussionsPage = () => {
                   course.isActive ? 'bg-teal-50 border-teal-200' : 'bg-white border-gray-200'
                 }`}
               >
-                <div className="flex items-start space-x-3">
+                <div className="flex items-center space-x-3">
                   <img
                     src={course.image}
                     alt={course.title}

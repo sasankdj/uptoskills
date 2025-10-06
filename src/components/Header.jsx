@@ -13,7 +13,7 @@ const Header = ({ sidebarOpen, setSidebarOpen, title = '', userName = 'Eliza Chr
             {sidebarOpen ? <X className="w-5 h-5 text-gray-600" /> : <Menu className="w-5 h-5 text-gray-600" />}
           </button>
           <img
-              src="https://api.builder.io/api/v1/image/assets/TEMP/e4a286c701fac47d2a67ae249051ba192e41e3c0?width=444"
+              src="/upto.png"
               alt="UptoSkills Logo"
               className="h-10 w-auto fixed left-5 top-4 ml-0"
             />
@@ -37,7 +37,7 @@ const Header = ({ sidebarOpen, setSidebarOpen, title = '', userName = 'Eliza Chr
           </div>
           <div className="flex items-center space-x-3">
             <img
-              src={userAvatar || "https://api.builder.io/api/v1/image/assets/TEMP/90078d83a9da0e490b62ca7a87c227e0089fff32?width=70"}
+              src={userAvatar || "/ui/avatar-4.png"}
               alt="User Avatar"
               className="w-8 h-8 rounded-full"
             />

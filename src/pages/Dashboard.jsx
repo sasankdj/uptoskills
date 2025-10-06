@@ -15,7 +15,11 @@ import {
   X,
   ChevronLeft,
   ChevronRight,
-  ChevronLeft as ChevronLeftIcon
+  ChevronLeft as ChevronLeftIcon,
+  CheckCircle,
+  Bookmark,
+  Clock,
+  Star
 } from 'lucide-react'
 
 const Dashboard = () => {
@@ -25,7 +29,7 @@ const Dashboard = () => {
 
   const statsCards = [
     {
-      icon: <img src="/AI_Tutor_New_UI/Icons/play_button.svg" alt="Ongoing Courses" className="w-5 h-5" />,
+      icon: <Play className="w-5 h-5 text-blue-600" />,
       value: "8",
       label: "Ongoing Courses",
       change: "+12%",
@@ -33,7 +37,7 @@ const Dashboard = () => {
       iconBg: "bg-blue-100"
     },
     {
-      icon: <img src="/AI_Tutor_New_UI/Icons/completed.svg" alt="Completed" className="w-5 h-5" />,
+      icon: <CheckCircle className="w-5 h-5 text-green-600" />,
       value: "24",
       label: "Completed",
       change: "+5",
@@ -41,7 +45,7 @@ const Dashboard = () => {
       iconBg: "bg-green-100"
     },
     {
-      icon: <img src="/AI_Tutor_New_UI/Icons/certificates.svg" alt="Certificates" className="w-5 h-5" />,
+      icon: <Bookmark className="w-5 h-5 text-purple-600" />,
       value: "12",
       label: "Certificates",
       change: "+2",
@@ -49,7 +53,7 @@ const Dashboard = () => {
       iconBg: "bg-purple-100"
     },
     {
-      icon: <img src="/AI_Tutor_New_UI/Icons/time_spent.svg" alt="Hours Spent" className="w-5 h-5" />,
+      icon: <Clock className="w-5 h-5 text-orange-600" />,
       value: "142",
       label: "Hours Spent",
       change: "+18h",
@@ -67,7 +71,7 @@ const Dashboard = () => {
       price: "₹1999",
       rating: "4.8",
       students: "2.5k students",
-      image: "https://api.builder.io/api/v1/image/assets/TEMP/2aaccc55e94334649d90f9e6d127257ec3244255?width=556",
+      image: "/ui/course-1.png",
       categoryColor: "bg-indigo-100 text-indigo-600"
     },
     {
@@ -78,7 +82,7 @@ const Dashboard = () => {
       price: "₹1299",
       rating: "4.9",
       students: "2.5k students",
-      image: "https://api.builder.io/api/v1/image/assets/TEMP/48a4ebbd2d9ae0cf6583e6f73f499d35cbe9459d?width=556",
+      image: "/ui/course-2.png",
       categoryColor: "bg-purple-100 text-purple-600"
     },
     {
@@ -89,7 +93,7 @@ const Dashboard = () => {
       price: "₹1499",
       rating: "4.7",
       students: "2.5k students",
-      image: "https://api.builder.io/api/v1/image/assets/TEMP/a43372c170555e6a023b35b1a47f1690c1264081?width=556",
+      image: "/ui/course-3.png",
       categoryColor: "bg-cyan-100 text-cyan-600"
     }
   ]
@@ -103,7 +107,7 @@ const Dashboard = () => {
       lessons: "18/24",
       level: "Intermediate",
       levelColor: "bg-green-100 text-green-800",
-      image: "https://api.builder.io/api/v1/image/assets/TEMP/92462dd9de15f9df6b5f2849cd4d54814ca085e3?width=96",
+      image: "/ui/my-course-1.png",
       progressColor: "bg-indigo-600"
     },
     {
@@ -114,7 +118,7 @@ const Dashboard = () => {
       lessons: "9/20",
       level: "Beginner",
       levelColor: "bg-blue-100 text-blue-800",
-      image: "https://api.builder.io/api/v1/image/assets/TEMP/a26e7f372a49e8f2d5f84c1cc89036dd4d256cab?width=96",
+      image: "/ui/my-course-2.png",
       progressColor: "bg-purple-600"
     },
     {
@@ -125,7 +129,7 @@ const Dashboard = () => {
       lessons: "27/30",
       level: "Advanced",
       levelColor: "bg-yellow-100 text-yellow-800",
-      image: "https://api.builder.io/api/v1/image/assets/TEMP/d64a95daa0c711aacdbec95967c82e08802771d0?width=96",
+      image: "/ui/my-course-3.png",
       progressColor: "bg-cyan-600"
     }
   ]
@@ -136,7 +140,7 @@ const Dashboard = () => {
       title: "React Fundamentals",
       lesson: "Lesson 18: State Management",
       progress: 75,
-      image: "https://api.builder.io/api/v1/image/assets/TEMP/17259779dc10072a44a6a85be7b4be00e5aca6fb?width=96",
+      image: "/ui/continue-1.png",
       progressColor: "bg-orange-400"
     },
     {
@@ -144,7 +148,7 @@ const Dashboard = () => {
       title: "Python for AI",
       lesson: "Lesson 9: Neural Networks",
       progress: 45,
-      image: "https://api.builder.io/api/v1/image/assets/TEMP/e29b46604eb59f66cdde424f0005d22a46670075?width=96",
+      image: "/ui/continue-2.png",
       progressColor: "bg-orange-400"
     },
     {
@@ -152,7 +156,7 @@ const Dashboard = () => {
       title: "Digital Marketing",
       lesson: "Lesson 27: SEO Optimization",
       progress: 90,
-      image: "https://api.builder.io/api/v1/image/assets/TEMP/4a53f8a3d37df3d07d4aaddd76c1030e0358896d?width=96",
+      image: "/ui/continue-3.png",
       progressColor: "bg-cyan-600"
     }
   ]
@@ -223,11 +227,11 @@ const Dashboard = () => {
                             alt={course.title}
                             className="w-full h-40 object-cover"
                           />
-                          <div className="absolute top-3 right-3 bg-white rounded-full p-1">
-                            <img src="/AI_Tutor_New_UI/Icons/bookmark.svg" alt="Bookmark" className="w-4 h-4 text-teal-600" />
+                          <div className="absolute top-3 right-3 bg-white rounded-full p-2">
+                            <Bookmark className="w-4 h-4 text-teal-600" />
                           </div>
                           <div className="absolute bottom-3 right-3 bg-white rounded-full px-2 py-1 flex items-center space-x-1">
-                            <img src="/AI_Tutor_New_UI/Icons/star.svg" alt="Star" className="w-3 h-3" />
+                            <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />
                             <span className="text-xs font-medium">{course.rating}</span>
                           </div>
                         </div>
@@ -371,28 +375,30 @@ const Dashboard = () => {
                 <h2 className="text-xl font-bold text-gray-900 mb-6">Continue Learning</h2>
                 <div className="space-y-4">
                   {continueLearning.map((item, index) => (
-                    <Link to={`/course-preview/${item.id}`} key={index} className="block bg-white rounded-xl p-4 border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+                    <div key={index} className="bg-white rounded-xl p-4 border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
                       <div className="flex items-center">
-                        <img 
-                          src={item.image} 
-                          alt={item.title}
-                          className="w-12 h-12 rounded-lg mr-4"
-                        />
-                        <div className="flex-1">
-                          <h3 className="font-medium text-gray-900 mb-1">{item.title}</h3>
-                          <p className="text-sm text-gray-600 mb-2">{item.lesson}</p>
-                          <div className="w-full bg-gray-200 rounded-full h-2 mb-2">
-                            <div 
-                              className={`h-2 rounded-full ${item.progressColor}`}
-                              style={{ width: `${item.progress}%` }}
-                            ></div>
+                        <Link to={`/course-preview/${item.id}`} className="flex items-center flex-1">
+                          <img 
+                            src={item.image} 
+                            alt={item.title}
+                            className="w-12 h-12 rounded-lg mr-4"
+                          />
+                          <div className="flex-1">
+                            <h3 className="font-medium text-gray-900 mb-1 hover:text-teal-600">{item.title}</h3>
+                            <p className="text-sm text-gray-600 mb-2">{item.lesson}</p>
+                            <div className="w-full bg-gray-200 rounded-full h-2 mb-2">
+                              <div 
+                                className={`h-2 rounded-full ${item.progressColor}`}
+                                style={{ width: `${item.progress}%` }}
+                              ></div>
+                            </div>
                           </div>
-                        </div>
+                        </Link>
                         <Link to={`/learning/${item.id}`} className="ml-4 px-4 py-2 bg-teal-500 text-white text-sm font-medium rounded-lg hover:bg-teal-600">
                           Continue
                         </Link>
                       </div>
-                    </Link>
+                    </div>
                   ))}
                 </div>
               </div>

@@ -164,7 +164,7 @@ export default function Learning() {
           <div className="p-6 border-b border-[#646971]">
             <div className="flex gap-3 items-center mb-2">
               <img 
-                src="https://api.builder.io/api/v1/image/assets/TEMP/2f29267f3ccc371cebc474105c2509a793b68824?width=110" 
+                src="/ui/course-avatar.png" 
                 alt="Course" 
                 className="w-[55px] h-[55px] rounded-full border border-[#766F6F]"
               />

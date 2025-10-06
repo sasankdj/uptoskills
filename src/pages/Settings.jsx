@@ -93,7 +93,7 @@ export default function Settings() {
                 <div className="flex flex-col items-center">
                   <div className="relative mb-6">
                     <img 
-                      src="" 
+                      src="https://api.dicebear.com/8.x/initials/svg?seed=Eliza%20Chris" 
                       alt="Profile" 
                       className="w-32 h-32 rounded-full border-4 border-[rgba(255,135,89,0.65)] shadow-[0_4px_6px_0_rgba(0,0,0,0.10),0_10px_15px_0_rgba(0,0,0,0.10)]"
                     />

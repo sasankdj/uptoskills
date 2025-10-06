@@ -207,7 +207,7 @@ export default function SignUpPage() {
                 className="h-[44px] rounded-[12px] border border-[#B3B3B3] bg-[#FCFCFC] flex items-center justify-center gap-3 hover:bg-gray-50 transition-colors"
               >
                 <img
-                  src="https://api.builder.io/api/v1/image/assets/TEMP/15b7812658c411a6f03bda7c68e9280a4019210d?width=48"
+                  src="/icons/google.svg"
                   alt="Sign in with Google"
                   className="w-6 h-6 object-contain"
                 />
@@ -221,7 +221,7 @@ export default function SignUpPage() {
                 className="h-[44px] rounded-[12px] border border-[#B3B3B3] bg-[#FCFCFC] flex items-center justify-center gap-3 hover:bg-gray-50 transition-colors"
               >
                 <img
-                  src="https://api.builder.io/api/v1/image/assets/TEMP/599a32e573831bb38d7607e6f3d255f717b79292?width=48"
+                  src="/icons/apple.svg"
                   alt="Sign in with Apple"
                   className="w-6 h-6 object-contain"
                 />

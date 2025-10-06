@@ -57,7 +57,7 @@ export default function Index() {
           {/* Logo */}
           <img 
             className="w-[284px] h-[70px] mb-16"
-            src="https://api.builder.io/api/v1/image/assets/TEMP/d6ea2c5fb6a69fed41f417eefc841b47975430bb?width=568" 
+            src="/upto.png" 
             alt="Logo" 
           />
 
@@ -93,7 +93,7 @@ export default function Index() {
             </p>
              <img 
         className=" left-[-46px] w-[507px] h-[517px] object-cover"
-        src="https://api.builder.io/api/v1/image/assets/TEMP/5615f379868151923c16a3a779e3fab3707033e4?width=1574" 
+        src="/signupimg.png" 
         alt="" 
       />
           </div>
@@ -209,9 +209,9 @@ export default function Index() {
                 <button className={`w-full h-11 px-4 flex items-center justify-center gap-3 rounded-xl border border-[#B3B3B3] transition-all hover:bg-gray-50 ${
                   isDarkMode ? 'bg-[#FCFCFC]' : 'bg-[#FCFCFC]'
                 }`}>
-                  <img 
+                  <img
                     className="w-6 h-6"
-                    src="https://api.builder.io/api/v1/image/assets/TEMP/15b7812658c411a6f03bda7c68e9280a4019210d?width=48" 
+                    src="/icons/google.svg"
                     alt="Google" 
                   />
                   <span className="text-black text-lg font-bold leading-7">Sign in with Google</span>
@@ -221,9 +221,9 @@ export default function Index() {
                 <button className={`w-full h-11 px-4 flex items-center justify-center gap-4 rounded-xl border border-[#B3B3B3] transition-all hover:bg-gray-50 ${
                   isDarkMode ? 'bg-[#FCFCFC]' : 'bg-[#FCFCFC]'
                 }`}>
-                  <img 
+                  <img
                     className="w-6 h-6"
-                    src="https://api.builder.io/api/v1/image/assets/TEMP/599a32e573831bb38d7607e6f3d255f717b79292?width=48" 
+                    src="/icons/apple.svg"
                     alt="Apple" 
                   />
                   <span className="text-black text-lg font-bold leading-7">Sign in with Apple</span>

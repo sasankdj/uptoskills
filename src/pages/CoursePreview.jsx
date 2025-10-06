@@ -37,7 +37,7 @@ export default function CoursePreview() {
               <div className="flex flex-wrap items-center gap-4 lg:gap-6">
                 <div className="flex items-center gap-2">
                   <img 
-                    src="https://api.builder.io/api/v1/image/assets/TEMP/489c0bbf993f7c468db3540d2ff08b89697c6fde?width=64" 
+                    src="/ui/avatar-4.png" 
                     alt="Instructor" 
                     className="w-8 h-8 rounded-full"
                   />
@@ -200,7 +200,7 @@ export default function CoursePreview() {
             {/* Video Preview */}
             <div className="relative bg-[#1F2937] rounded-xl overflow-hidden shadow-[0_0_30px_0_rgba(102,126,234,0.3)]">
               <img 
-                src="https://api.builder.io/api/v1/image/assets/TEMP/1cd454e875d2a3b28471c1a84c8fd8b60a8b0931?width=789" 
+                src="/ui/course-preview.png" 
                 alt="Course preview" 
                 className="w-full h-48 object-cover"
               />
