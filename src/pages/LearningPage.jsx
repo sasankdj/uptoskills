@@ -1,11 +1,34 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Header from "../components/Header";
-import { ChevronLeft, Play, Volume2, Maximize, ChevronRight, ChevronDown, Bell } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { 
+  ChevronLeft, 
+  Play, 
+  Pause,
+  Volume2, 
+  VolumeX,
+  Maximize, 
+  Minimize,
+  ChevronRight, 
+  ChevronDown, 
+} from "lucide-react";
 
 export default function Learning() {
+  const navigate = useNavigate();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [currentLesson, setCurrentLesson] = useState("what-is-react");
   const [expandedModule, setExpandedModule] = useState("module-1");
+
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [volume, setVolume] = useState(1);
+  const [isMuted, setIsMuted] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const [duration, setDuration] = useState(0);
+  const [currentTime, setCurrentTime] = useState(0);
+
+  const videoRef = useRef(null);
+  const playerContainerRef = useRef(null);
 
   const modules = [
     {
@@ -32,6 +55,103 @@ export default function Learning() {
   const toggleModule = (moduleId) => {
     setExpandedModule(expandedModule === moduleId ? "" : moduleId);
   };
+
+  const togglePlay = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
+  const handleVolumeChange = (e) => {
+    const newVolume = parseFloat(e.target.value);
+    setVolume(newVolume);
+    if (videoRef.current) {
+      videoRef.current.volume = newVolume;
+      videoRef.current.muted = newVolume === 0;
+      setIsMuted(newVolume === 0);
+    }
+  };
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !isMuted;
+      setIsMuted(!isMuted);
+      if (!isMuted && volume === 0) {
+        setVolume(0.5);
+        videoRef.current.volume = 0.5;
+      }
+    }
+  };
+
+  const handleProgress = () => {
+    if (videoRef.current) {
+      const duration = videoRef.current.duration;
+      const currentTime = videoRef.current.currentTime;
+      setCurrentTime(currentTime);
+      setDuration(duration);
+      const progress = (currentTime / duration) * 100;
+      setProgress(progress);
+    }
+  };
+
+  const handleSeek = (e) => {
+    if (videoRef.current) {
+      const seekTime = (e.target.value / 100) * videoRef.current.duration;
+      videoRef.current.currentTime = seekTime;
+      setProgress(e.target.value);
+    }
+  };
+
+  const formatTime = (time) => {
+    if (isNaN(time) || time === 0) return "00:00";
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+  };
+
+  const toggleFullscreen = () => {
+    const container = playerContainerRef.current;
+    if (!document.fullscreenElement) {
+      if (container.requestFullscreen) {
+        container.requestFullscreen();
+      } else if (container.mozRequestFullScreen) { /* Firefox */
+        container.mozRequestFullScreen();
+      } else if (container.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+        container.webkitRequestFullscreen();
+      } else if (container.msRequestFullscreen) { /* IE/Edge */
+        container.msRequestFullscreen();
+      }
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      } else if (document.mozCancelFullScreen) { /* Firefox */
+        document.mozCancelFullScreen();
+      } else if (document.webkitExitFullscreen) { /* Chrome, Safari & Opera */
+        document.webkitExitFullscreen();
+      } else if (document.msExitFullscreen) { /* IE/Edge */
+        document.msExitFullscreen();
+      }
+    }
+  };
+
+  useEffect(() => {
+    const handleFullscreenChange = () => {
+      setIsFullscreen(!!document.fullscreenElement);
+    };
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+    document.addEventListener('mozfullscreenchange', handleFullscreenChange);
+    document.addEventListener('MSFullscreenChange', handleFullscreenChange);
+
+    return () => {
+      document.removeEventListener('fullscreenchange', handleFullscreenChange);
+    };
+  }, []);
 
   return (
     <div className="min-h-screen bg-[#F6F8FA]">
@@ -143,40 +263,66 @@ export default function Learning() {
         {/* Main Content */}
         <main className="flex-1 px-6 py-6">
           {/* Back Button */}
-          <button className="mb-6 w-10 h-10 rounded-full bg-white border border-[#D0D0D0] flex items-center justify-center hover:bg-gray-50 transition-colors">
+          <button 
+            onClick={() => navigate(-1)}
+            className="mb-6 w-10 h-10 rounded-full bg-white border border-[#D0D0D0] flex items-center justify-center hover:bg-gray-50 transition-colors"
+          >
             <ChevronLeft className="w-7 h-7 text-[#595959]" />
           </button>
 
           {/* Video Player */}
-          <div className="relative rounded-xl overflow-hidden shadow-[0_0_20px_rgba(59,130,246,0.3)] mb-8 max-w-[993px]">
-            <div className="relative w-full h-[468px] bg-cover bg-center" style={{ backgroundImage: "url('https://api.builder.io/api/v1/image/assets/TEMP/4149874273b2935a8787f693959fae840db48f9d?width=1986')" }}>
-              <div className="absolute inset-0 bg-gradient-to-r from-[rgba(59,130,246,0.1)] to-[rgba(147,51,234,0.1)]">
-                <div className="absolute top-4 left-5 text-white/70 text-xl">
-                  Module 1: Introduction  What is React?
-                </div>
-                
-                <div className="absolute top-8 right-8 w-6 h-6 rounded-full bg-[#C084FC]/50"></div>
-                <div className="absolute bottom-24 left-8 w-4 h-4 rounded-full bg-[#22D3EE]/50"></div>
-              </div>
+          <div ref={playerContainerRef} className="relative rounded-xl overflow-hidden shadow-[0_0_20px_rgba(59,130,246,0.3)] mb-8 max-w-[993px] bg-black">
+            <video
+              ref={videoRef}
+              className="w-full h-full"
+              src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+              onTimeUpdate={handleProgress}
+              onLoadedMetadata={handleProgress}
+              onPlay={() => setIsPlaying(true)}
+              onPause={() => setIsPlaying(false)}
+              onClick={togglePlay}
+            />
+            <div className="absolute top-4 left-5 text-white/70 text-xl">
+              Module 1: Introduction What is React?
+            </div>
 
-              {/* Video Controls */}
-              <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-r from-black to-transparent px-4 flex items-center">
-                <button className="mr-4 hover:scale-110 transition-transform">
-                  <Play className="w-[18px] h-6 fill-white text-white" />
+            {/* Video Controls */}
+            <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black/70 to-transparent p-4 flex flex-col justify-end">
+              {/* Seek Bar */}
+              <input
+                type="range"
+                min="0"
+                max="100"
+                value={progress}
+                onChange={handleSeek}
+                className="w-full h-1 bg-gray-600 rounded-lg appearance-none cursor-pointer range-sm accent-blue-500 mb-2"
+              />
+              <div className="flex items-center">
+                <button onClick={togglePlay} className="mr-4 hover:scale-110 transition-transform">
+                  {isPlaying ? (
+                    <Pause className="w-[18px] h-6 fill-white text-white" />
+                  ) : (
+                    <Play className="w-[18px] h-6 fill-white text-white" />
+                  )}
                 </button>
                 
-                <div className="flex-1 h-1 bg-[#4B5563] rounded-full overflow-hidden relative">
-                  <div className="absolute h-full w-[38%] bg-[#60A5FA] rounded-full"></div>
+                <div className="flex items-center gap-2">
+                  <button onClick={toggleMute} className="hover:scale-110 transition-transform">
+                    {isMuted || volume === 0 ? <VolumeX className="w-5 h-4 text-white" /> : <Volume2 className="w-5 h-4 text-white" />}
+                  </button>
+                  <input
+                    type="range"
+                    min="0"
+                    max="1"
+                    step="0.05"
+                    value={isMuted ? 0 : volume}
+                    onChange={handleVolumeChange}
+                    className="w-20 h-1 bg-gray-600 rounded-lg appearance-none cursor-pointer range-sm accent-white"
+                  />
                 </div>
-                
-                <span className="mx-4 text-white text-sm font-['Space_Grotesk']">4:32 / 12:00</span>
-                
-                <button className="mr-3 hover:scale-110 transition-transform">
-                  <Volume2 className="w-5 h-4 text-white" />
-                </button>
-                
-                <button className="hover:scale-110 transition-transform">
-                  <Maximize className="w-[14px] h-4 text-white" />
+                <span className="ml-4 text-white text-sm font-['Space_Grotesk']">{formatTime(currentTime)} / {formatTime(duration)}</span>
+                <button onClick={toggleFullscreen} className="ml-auto hover:scale-110 transition-transform">
+                  {isFullscreen ? <Minimize className="w-[14px] h-4 text-white" /> : <Maximize className="w-[14px] h-4 text-white" />}
                 </button>
               </div>
             </div>

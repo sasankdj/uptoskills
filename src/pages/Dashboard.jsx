@@ -60,6 +60,7 @@ const Dashboard = () => {
 
   const popularCourses = [
     {
+      id: 1,
       title: "Machine Learning Fundamentals",
       category: "AI & ML",
       lessons: "24 lessons • Intermediate",
@@ -70,6 +71,7 @@ const Dashboard = () => {
       categoryColor: "bg-indigo-100 text-indigo-600"
     },
     {
+      id: 2,
       title: "Full Stack Web Development",
       category: "Development",
       lessons: "36 lessons • Beginner",
@@ -80,6 +82,7 @@ const Dashboard = () => {
       categoryColor: "bg-purple-100 text-purple-600"
     },
     {
+      id: 3,
       title: "Data Analytics Masterclass",
       category: "Data Science",
       lessons: "28 lessons • Advanced",
@@ -93,6 +96,7 @@ const Dashboard = () => {
 
   const myCourses = [
     {
+      id: 1,
       title: "Frontend Development",
       subtitle: "React Fundamentals",
       progress: 75,
@@ -103,6 +107,7 @@ const Dashboard = () => {
       progressColor: "bg-indigo-600"
     },
     {
+      id: 2,
       title: "Python for AI",
       subtitle: "Artificial Intelligence",
       progress: 45,
@@ -113,6 +118,7 @@ const Dashboard = () => {
       progressColor: "bg-purple-600"
     },
     {
+      id: 3,
       title: "Digital Marketing",
       subtitle: "Marketing",
       progress: 90,
@@ -126,6 +132,7 @@ const Dashboard = () => {
 
   const continueLearning = [
     {
+      id: 1,
       title: "React Fundamentals",
       lesson: "Lesson 18: State Management",
       progress: 75,
@@ -133,6 +140,7 @@ const Dashboard = () => {
       progressColor: "bg-orange-400"
     },
     {
+      id: 2,
       title: "Python for AI",
       lesson: "Lesson 9: Neural Networks",
       progress: 45,
@@ -140,6 +148,7 @@ const Dashboard = () => {
       progressColor: "bg-orange-400"
     },
     {
+      id: 3,
       title: "Digital Marketing",
       lesson: "Lesson 27: SEO Optimization",
       progress: 90,
@@ -206,33 +215,35 @@ const Dashboard = () => {
                 <h2 className="text-xl font-bold text-gray-900 mb-6">Popular Courses</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {popularCourses.map((course, index) => (
-                    <div key={index} className="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
-                      <div className="relative">
-                        <img 
-                          src={course.image} 
-                          alt={course.title}
-                          className="w-full h-40 object-cover"
-                        />
-                        <div className="absolute top-3 right-3 bg-white rounded-full p-1">
-                          <img src="/AI_Tutor_New_UI/Icons/bookmark.svg" alt="Bookmark" className="w-4 h-4 text-teal-600" />
+                    <Link to={`/course-preview/${course.id}`} key={index}>
+                      <div className="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm h-full">
+                        <div className="relative">
+                          <img
+                            src={course.image}
+                            alt={course.title}
+                            className="w-full h-40 object-cover"
+                          />
+                          <div className="absolute top-3 right-3 bg-white rounded-full p-1">
+                            <img src="/AI_Tutor_New_UI/Icons/bookmark.svg" alt="Bookmark" className="w-4 h-4 text-teal-600" />
+                          </div>
+                          <div className="absolute bottom-3 right-3 bg-white rounded-full px-2 py-1 flex items-center space-x-1">
+                            <img src="/AI_Tutor_New_UI/Icons/star.svg" alt="Star" className="w-3 h-3" />
+                            <span className="text-xs font-medium">{course.rating}</span>
+                          </div>
                         </div>
-                        <div className="absolute bottom-3 right-3 bg-white rounded-full px-2 py-1 flex items-center space-x-1">
-                          <img src="/AI_Tutor_New_UI/Icons/star.svg" alt="Star" className="w-3 h-3" />
-                          <span className="text-xs font-medium">{course.rating}</span>
+                        <div className="p-4">
+                          <div className={`inline-block px-2 py-1 rounded-full text-xs font-medium mb-3 ${course.categoryColor}`}>
+                            {course.category}
+                          </div>
+                          <h3 className="font-semibold text-gray-900 mb-2 line-clamp-2">{course.title}</h3>
+                          <p className="text-sm text-gray-600 mb-4">{course.lessons}</p>
+                          <div className="flex items-center justify-between">
+                            <span className="text-lg font-bold text-gray-900">{course.price}</span>
+                            <span className="text-xs text-gray-500">{course.students}</span>
+                          </div>
                         </div>
                       </div>
-                      <div className="p-4">
-                        <div className={`inline-block px-2 py-1 rounded-full text-xs font-medium mb-3 ${course.categoryColor}`}>
-                          {course.category}
-                        </div>
-                        <h3 className="font-semibold text-gray-900 mb-2 line-clamp-2">{course.title}</h3>
-                        <p className="text-sm text-gray-600 mb-4">{course.lessons}</p>
-                        <div className="flex items-center justify-between">
-                          <span className="text-lg font-bold text-gray-900">{course.price}</span>
-                          <span className="text-xs text-gray-500">{course.students}</span>
-                        </div>
-                      </div>
-                    </div>
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -318,23 +329,23 @@ const Dashboard = () => {
                       </thead>
                       <tbody className="divide-y divide-gray-200">
                         {myCourses.map((course, index) => (
-                          <tr key={index}>
+                          <tr key={index} className="hover:bg-gray-50">
                             <td className="px-4 py-4">
-                              <div className="flex items-center">
-                                <img 
-                                  src={course.image} 
+                              <Link to={`/course-preview/${course.id}`} className="flex items-center">
+                                <img
+                                  src={course.image}
                                   alt={course.title}
                                   className="w-12 h-12 rounded-lg mr-4"
                                 />
                                 <div>
-                                  <div className="font-medium text-gray-900">{course.title}</div>
+                                  <div className="font-medium text-gray-900 hover:text-indigo-600">{course.title}</div>
                                   <div className="text-sm text-gray-600">{course.subtitle}</div>
                                 </div>
-                              </div>
+                              </Link>
                             </td>
                             <td className="px-4 py-4">
                               <div className="w-20 bg-gray-200 rounded-full h-2 mb-1">
-                                <div 
+                                <div
                                   className={`h-2 rounded-full ${course.progressColor}`}
                                   style={{ width: `${course.progress}%` }}
                                 ></div>
@@ -360,7 +371,7 @@ const Dashboard = () => {
                 <h2 className="text-xl font-bold text-gray-900 mb-6">Continue Learning</h2>
                 <div className="space-y-4">
                   {continueLearning.map((item, index) => (
-                    <div key={index} className="bg-white rounded-xl p-4 border border-gray-200 shadow-sm">
+                    <Link to={`/course-preview/${item.id}`} key={index} className="block bg-white rounded-xl p-4 border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
                       <div className="flex items-center">
                         <img 
                           src={item.image} 
@@ -377,11 +388,11 @@ const Dashboard = () => {
                             ></div>
                           </div>
                         </div>
-                        <button className="ml-4 px-4 py-2 bg-teal-500 text-white text-sm font-medium rounded-lg hover:bg-teal-600">
+                        <Link to={`/learning/${item.id}`} className="ml-4 px-4 py-2 bg-teal-500 text-white text-sm font-medium rounded-lg hover:bg-teal-600">
                           Continue
-                        </button>
+                        </Link>
                       </div>
-                    </div>
+                    </Link>
                   ))}
                 </div>
               </div>

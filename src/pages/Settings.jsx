@@ -93,7 +93,7 @@ export default function Settings() {
                 <div className="flex flex-col items-center">
                   <div className="relative mb-6">
                     <img 
-                      src="https://api.builder.io/api/v1/image/assets/TEMP/c91e5284b9cecc21299f18a944ef566fec53b30e?width=256" 
+                      src="" 
                       alt="Profile" 
                       className="w-32 h-32 rounded-full border-4 border-[rgba(255,135,89,0.65)] shadow-[0_4px_6px_0_rgba(0,0,0,0.10),0_10px_15px_0_rgba(0,0,0,0.10)]"
                     />
