@@ -37,7 +37,7 @@ const Header = ({ sidebarOpen, setSidebarOpen, title = '', userName = 'Eliza Chr
           </div>
           <div className="flex items-center space-x-3">
             <img
-              src={userAvatar || "/ui/avatar-4.png"}
+              src={userAvatar || "AI_Tutor_New_UI/Discussion_Room/sarahkim.jpg"}
               alt="User Avatar"
               className="w-8 h-8 rounded-full"
             />

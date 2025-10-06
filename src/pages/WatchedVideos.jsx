@@ -21,7 +21,7 @@ const WatchedVideos = () => {
       progress: 80,
       status: "in-progress",
       lastWatched: "2 days ago",
-      thumbnail: "/ui/watched-1.png"
+      thumbnail: "/AI_Tutor_New_UI/Watched_Videos/intro_to_neural_networks.png"
     },
     {
       id: 2,
@@ -31,7 +31,7 @@ const WatchedVideos = () => {
       progress: 100,
       status: "completed",
       lastWatched: "1 week ago",
-      thumbnail: "/ui/watched-2.png"
+      thumbnail: "/AI_Tutor_New_UI/Watched_Videos/deep_learning_architectures.png"
     },
     {
       id: 3,
@@ -41,7 +41,7 @@ const WatchedVideos = () => {
       progress: 33,
       status: "in-progress",
       lastWatched: "3 days ago",
-      thumbnail: "/ui/watched-3.png"
+      thumbnail: "/AI_Tutor_New_UI/Watched_Videos/data_visualization_techniques.png"
     },
     {
       id: 4,
@@ -51,7 +51,7 @@ const WatchedVideos = () => {
       progress: 100,
       status: "completed",
       lastWatched: "5 days ago",
-      thumbnail: "/ui/watched-4.png"
+      thumbnail: "/AI_Tutor_New_UI/Watched_Videos/programming_fundamentals.png"
     },
     {
       id: 5,
@@ -61,7 +61,7 @@ const WatchedVideos = () => {
       progress: 60,
       status: "in-progress",
       lastWatched: "1 day ago",
-      thumbnail: "/ui/watched-5.png"
+      thumbnail: "/AI_Tutor_New_UI/Watched_Videos/ai_fundamentals.png"
     },
     {
       id: 6,
@@ -71,7 +71,7 @@ const WatchedVideos = () => {
       progress: 100,
       status: "completed",
       lastWatched: "1 week ago",
-      thumbnail: "/ui/watched-6.png"
+      thumbnail: "/AI_Tutor_New_UI/Watched_Videos/computer_vision.png"
     }
   ];
 

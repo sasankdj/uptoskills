@@ -43,7 +43,7 @@ const DiscussionsPage = () => {
         {
           user: {
             name: "Sarah Kim",
-            avatar: "/ui/avatar-2.png",
+            avatar: "AI_Tutor_New_UI/Discussion_Room/sarahkim.jpg",
             level: "Expert",
             levelColor: "bg-green-100 text-green-800"
           },

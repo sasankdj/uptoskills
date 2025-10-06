@@ -122,7 +122,7 @@ const Sidebar = ({
             <div className="bg-gradient-to-r from-purple-50 to-blue-50 rounded-xl p-4 border border-purple-100">
               <div className="flex items-center">
                 <img
-                  src="https://api.builder.io/api/v1/image/assets/TEMP/8981782804be8e77a0fc1bfd7e55f8c016e96995?width=64"
+                  src="AI_Tutor_New_UI/Discussion_Room/sarahkim.jpg"
                   alt="Eliza Chris"
                   className="w-8 h-8 rounded-full"
                 />
@@ -143,7 +143,7 @@ const Sidebar = ({
           <div className="absolute bottom-4 left-4 right-4">
             <div className="flex justify-center">
               <img
-                src="https://api.builder.io/api/v1/image/assets/TEMP/8981782804be8e77a0fc1bfd7e55f8c016e96995?width=64"
+                src="AI_Tutor_New_UI/Discussion_Room/sarahkim.jpg"
                 alt="Eliza Chris"
                 className="w-10 h-10 rounded-full border-2 border-purple-200"
               />

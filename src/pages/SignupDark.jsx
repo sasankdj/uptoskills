@@ -152,7 +152,7 @@ export default function Signup() {
             {/* Google sign in */}
             <button className="h-[44px] px-[16px] flex items-center justify-center gap-[12px] rounded-[12px] border border-login-border bg-white">
               <img
-                src="https://api.builder.io/api/v1/image/assets/TEMP/15b7812658c411a6f03bda7c68e9280a4019210d?width=48"
+                src="/AI_Tutor_New_UI/Signup_login_page/google_icon.svg"
                 alt="Google"
                 className="w-[24px] h-[24px]"
               />
@@ -164,7 +164,7 @@ export default function Signup() {
             {/* Apple sign in */}
             <button className="h-[44px] px-[16px] flex items-center justify-center gap-[16px] rounded-[12px] border border-login-border bg-white">
               <img
-                src="https://api.builder.io/api/v1/image/assets/TEMP/599a32e573831bb38d7607e6f3d255f717b79292?width=48"
+                src="/AI_Tutor_New_UI/Signup_login_page/apple_icon.svg"
                 alt="Apple"
                 className="w-[24px] h-[24px]"
               />
@@ -299,12 +299,12 @@ export default function Signup() {
                 </button>
                 
                 <button className="w-full h-11 rounded-lg border border-login-border bg-white text-black font-inter font-bold flex items-center justify-center gap-3">
-                  <img src="https://api.builder.io/api/v1/image/assets/TEMP/15b7812658c411a6f03bda7c68e9280a4019210d?width=48" alt="Google" className="w-5 h-5" />
+                  <img src="/AI_Tutor_New_UI/Signup_login_page/google_icon.svg" alt="Google" className="w-5 h-5" />
                   Sign in with Google
                 </button>
                 
                 <button className="w-full h-11 rounded-lg border border-login-border bg-white text-black font-inter font-bold flex items-center justify-center gap-3">
-                  <img src="https://api.builder.io/api/v1/image/assets/TEMP/599a32e573831bb38d7607e6f3d255f717b79292?width=48" alt="Apple" className="w-5 h-5" />
+                  <img src="/AI_Tutor_New_UI/Signup_login_page/apple_icon.svg" alt="Apple" className="w-5 h-5" />
                   Sign in with Apple
                 </button>
                 
