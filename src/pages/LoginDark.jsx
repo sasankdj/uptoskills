@@ -198,16 +198,6 @@ export default function Login() {
               </span>
             </div>
           </div>
-
-          {/* Toggle button to switch to Signup */}
-          <div className="absolute left-[21px] top-[640px] w-[536px] flex justify-center">
-            <button
-              onClick={() => navigate('/signup')}
-              className="text-login-orange underline text-lg font-semibold"
-            >
-              Switch to Sign Up
-            </button>
-          </div>
         </div>
       </div>
 
