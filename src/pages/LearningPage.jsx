@@ -1,22 +1,24 @@
 import { useState, useRef, useEffect } from "react";
 import Header from "../components/Header";
 import { useNavigate } from "react-router-dom";
-import { 
-  ChevronLeft, 
-  Play, 
+import {
+  ChevronLeft,
   Pause,
-  Volume2, 
+  Volume2,
   VolumeX,
-  Maximize, 
+  Maximize,
   Minimize,
-  ChevronRight, 
-  ChevronDown, 
+  ChevronRight,
 } from "lucide-react";
+import { ReactComponent as ChevronDownIcon } from '/AI_Tutor_New_UI/Icons/keyboard_arrow_down.svg';
+import { ReactComponent as PlayIcon } from '/AI_Tutor_New_UI/Icons/play_button.svg';
+import { ReactComponent as CheckMarkIcon } from '/AI_Tutor_New_UI/Icons/check_mark.svg';
+import { ReactComponent as DottedCircleIcon } from '/AI_Tutor_New_UI/Icons/dotted_circle.svg';
 
 export default function Learning() {
   const navigate = useNavigate();
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [currentLesson, setCurrentLesson] = useState("what-is-react");
+  const [currentLesson] = useState("what-is-react");
   const [expandedModule, setExpandedModule] = useState("module-1");
 
   const [isPlaying, setIsPlaying] = useState(false);
@@ -164,7 +166,7 @@ export default function Learning() {
           <div className="p-6 border-b border-[#646971]">
             <div className="flex gap-3 items-center mb-2">
               <img 
-                src="/ui/course-avatar.png" 
+                src="/AI_Tutor_New_UI/Dashboard/logo.png" 
                 alt="Course" 
                 className="w-[55px] h-[55px] rounded-full border border-[#766F6F]"
               />
@@ -213,7 +215,7 @@ export default function Learning() {
                                   <path d="M2 0C0.896875 0 0 0.896875 0 2V14C0 15.1031 0.896875 16 2 16H10C11.1031 16 12 15.1031 12 14V5H8C7.44688 5 7 4.55312 7 4V0H2ZM8 0V4H12L8 0ZM3.5 8H8.5C8.775 8 9 8.225 9 8.5C9 8.775 8.775 9 8.5 9H3.5C3.225 9 3 8.775 3 8.5C3 8.225 3.225 8 3.5 8ZM3.5 10H8.5C8.775 10 9 10.225 9 10.5C9 10.775 8.775 11 8.5 11H3.5C3.225 11 3 10.775 3 10.5C3 10.225 3.225 10 3.5 10ZM3.5 12H8.5C8.775 12 9 12.225 9 12.5C9 12.775 8.775 13 8.5 13H3.5C3.225 13 3 12.775 3 12.5C3 12.225 3.225 12 3.5 12Z" fill="#3B4453"/>
                                 </svg>
                               ) : (
-                                <Play className="w-3 h-4 fill-[#3B4453] text-[#3B4453]" />
+                                <PlayIcon className="w-3 h-4 fill-[#3B4453] text-[#3B4453]" />
                               )}
                               <div>
                                 <div className="text-black font-normal">{lesson.title}</div>
@@ -222,21 +224,15 @@ export default function Learning() {
                             </div>
                             
                             {isPreviouslyCompleted && (
-                              <svg className="w-4 h-4 flex-shrink-0" viewBox="0 0 16 16" fill="none">
-                                <path d="M8 16C10.1217 16 12.1566 15.1571 13.6569 13.6569C15.1571 12.1566 16 10.1217 16 8C16 5.87827 15.1571 3.84344 13.6569 2.34315C12.1566 0.842855 10.1217 0 8 0C5.87827 0 3.84344 0.842855 2.34315 2.34315C0.842855 3.84344 0 5.87827 0 8C0 10.1217 0.842855 12.1566 2.34315 13.6569C3.84344 15.1571 5.87827 16 8 16ZM11.5312 6.53125L7.53125 10.5312C7.2375 10.825 6.7625 10.825 6.47188 10.5312L4.47188 8.53125C4.17813 8.2375 4.17813 7.7625 4.47188 7.47188C4.76562 7.18125 5.24062 7.17813 5.53125 7.47188L7 8.94063L10.4688 5.46875C10.7625 5.175 11.2375 5.175 11.5281 5.46875C11.8187 5.7625 11.8219 6.2375 11.5281 6.52812L11.5312 6.53125Z" fill="#4ADE80"/>
-                              </svg>
+                              <CheckMarkIcon className="w-4 h-4 flex-shrink-0" />
                             )}
                             
                             {!isPreviouslyCompleted && !isActive && (
-                              <svg className="w-4 h-4 flex-shrink-0" viewBox="0 0 16 16" fill="none">
-                                <path d="M8 0.25C10.0554 0.25 12.0271 1.06612 13.4805 2.51953C14.9339 3.97294 15.75 5.94457 15.75 8C15.75 10.0554 14.9339 12.0271 13.4805 13.4805C12.0271 14.9339 10.0554 15.75 8 15.75C5.94457 15.75 3.97294 14.9339 2.51953 13.4805C1.06612 12.0271 0.25 10.0554 0.25 8C0.25 5.94457 1.06612 3.97294 2.51953 2.51953C3.97294 1.06612 5.94457 0.25 8 0.25Z" fill="white" stroke="#7B7B7B" strokeWidth="0.5"/>
-                              </svg>
+                              <DottedCircleIcon className="w-4 h-4 flex-shrink-0" />
                             )}
 
                             {isActive && (
-                              <svg className="w-4 h-4 flex-shrink-0" viewBox="0 0 16 16" fill="none">
-                                <path d="M8 16C10.1217 16 12.1566 15.1571 13.6569 13.6569C15.1571 12.1566 16 10.1217 16 8C16 5.87827 15.1571 3.84344 13.6569 2.34315C12.1566 0.842855 10.1217 0 8 0C5.87827 0 3.84344 0.842855 2.34315 2.34315C0.842855 3.84344 0 5.87827 0 8C0 10.1217 0.842855 12.1566 2.34315 13.6569C3.84344 15.1571 5.87827 16 8 16ZM11.5312 6.53125L7.53125 10.5312C7.2375 10.825 6.7625 10.825 6.47188 10.5312L4.47188 8.53125C4.17813 8.2375 4.17813 7.7625 4.47188 7.47188C4.76562 7.18125 5.24062 7.17813 5.53125 7.47188L7 8.94063L10.4688 5.46875C10.7625 5.175 11.2375 5.175 11.5281 5.46875C11.8187 5.7625 11.8219 6.2375 11.5281 6.52812L11.5312 6.53125Z" fill="#4ADE80"/>
-                              </svg>
+                              <CheckMarkIcon className="w-4 h-4 flex-shrink-0" />
                             )}
                           </div>
                         </div>

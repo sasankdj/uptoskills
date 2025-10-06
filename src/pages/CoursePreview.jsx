@@ -200,17 +200,11 @@ export default function CoursePreview() {
             {/* Video Preview */}
             <div className="relative bg-[#1F2937] rounded-xl overflow-hidden shadow-[0_0_30px_0_rgba(102,126,234,0.3)]">
               <img 
-                src="/ui/course-preview.png" 
+                src="AI_Tutor_New_UI/Course_Preview/thumbnail_img.png" 
                 alt="Course preview" 
                 className="w-full h-48 object-cover"
               />
-              <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-                <button className="w-16 h-16 bg-[#54D3C3] rounded-full flex items-center justify-center">
-                  <svg className="w-4 h-5 ml-1" viewBox="0 0 16 21" fill="none">
-                    <path d="M3.00781 2.02349C2.42969 1.66802 1.70312 1.65631 1.11328 1.98834C0.523438 2.32037 0.15625 2.94537 0.15625 3.62506V17.3751C0.15625 18.0547 0.523438 18.6797 1.11328 19.0118C1.70312 19.3438 2.42969 19.3282 3.00781 18.9766L14.2578 12.1016C14.8164 11.7618 15.1562 11.1563 15.1562 10.5001C15.1562 9.84381 14.8164 9.24224 14.2578 8.89849L3.00781 2.02349Z" fill="white"/>
-                  </svg>
-                </button>
-              </div>
+              
             </div>
 
             {/* Pricing Card */}
