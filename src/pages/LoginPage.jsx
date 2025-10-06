@@ -211,8 +211,8 @@ export default function Index() {
                 }`}>
                   <img
                     className="w-6 h-6"
-                    src="/icons/google.svg"
-                    alt="Google" 
+                    src="/AI_Tutor_New_UI/Signup_login_page/google_icon.svg"
+                    alt="Google"
                   />
                   <span className="text-black text-lg font-bold leading-7">Sign in with Google</span>
                 </button>
@@ -223,8 +223,8 @@ export default function Index() {
                 }`}>
                   <img
                     className="w-6 h-6"
-                    src="/icons/apple.svg"
-                    alt="Apple" 
+                    src="/AI_Tutor_New_UI/Signup_login_page/apple_icon.svg"
+                    alt="Apple"
                   />
                   <span className="text-black text-lg font-bold leading-7">Sign in with Apple</span>
                 </button>

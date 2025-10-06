@@ -207,7 +207,7 @@ export default function SignUpPage() {
                 className="h-[44px] rounded-[12px] border border-[#B3B3B3] bg-[#FCFCFC] flex items-center justify-center gap-3 hover:bg-gray-50 transition-colors"
               >
                 <img
-                  src="/icons/google.svg"
+                  src="/AI_Tutor_New_UI/Signup_login_page/google_icon.svg"
                   alt="Sign in with Google"
                   className="w-6 h-6 object-contain"
                 />
@@ -221,7 +221,7 @@ export default function SignUpPage() {
                 className="h-[44px] rounded-[12px] border border-[#B3B3B3] bg-[#FCFCFC] flex items-center justify-center gap-3 hover:bg-gray-50 transition-colors"
               >
                 <img
-                  src="/icons/apple.svg"
+                  src="/AI_Tutor_New_UI/Signup_login_page/apple_icon.svg"
                   alt="Sign in with Apple"
                   className="w-6 h-6 object-contain"
                 />

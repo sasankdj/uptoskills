@@ -71,7 +71,7 @@ const Dashboard = () => {
       price: "₹1999",
       rating: "4.8",
       students: "2.5k students",
-      image: "/ui/course-1.png",
+      image: "/AI_Tutor_New_UI/Dashboard/ML_fundamentals.png",
       categoryColor: "bg-indigo-100 text-indigo-600"
     },
     {
@@ -82,7 +82,7 @@ const Dashboard = () => {
       price: "₹1299",
       rating: "4.9",
       students: "2.5k students",
-      image: "/ui/course-2.png",
+      image: "/AI_Tutor_New_UI/Dashboard/full_stack_web_dev.png",
       categoryColor: "bg-purple-100 text-purple-600"
     },
     {
@@ -93,7 +93,7 @@ const Dashboard = () => {
       price: "₹1499",
       rating: "4.7",
       students: "2.5k students",
-      image: "/ui/course-3.png",
+      image: "/AI_Tutor_New_UI/Dashboard/data_analytics.png",
       categoryColor: "bg-cyan-100 text-cyan-600"
     }
   ]
@@ -107,7 +107,7 @@ const Dashboard = () => {
       lessons: "18/24",
       level: "Intermediate",
       levelColor: "bg-green-100 text-green-800",
-      image: "/ui/my-course-1.png",
+      image: "/AI_Tutor_New_UI/Dashboard/react_fundamentals_logo.png",
       progressColor: "bg-indigo-600"
     },
     {
@@ -118,7 +118,7 @@ const Dashboard = () => {
       lessons: "9/20",
       level: "Beginner",
       levelColor: "bg-blue-100 text-blue-800",
-      image: "/ui/my-course-2.png",
+      image: "/AI_Tutor_New_UI/Dashboard/python_for_ai_logo.png",
       progressColor: "bg-purple-600"
     },
     {
@@ -129,7 +129,7 @@ const Dashboard = () => {
       lessons: "27/30",
       level: "Advanced",
       levelColor: "bg-yellow-100 text-yellow-800",
-      image: "/ui/my-course-3.png",
+      image: "/AI_Tutor_New_UI/Dashboard/logo.png",
       progressColor: "bg-cyan-600"
     }
   ]
@@ -140,7 +140,7 @@ const Dashboard = () => {
       title: "React Fundamentals",
       lesson: "Lesson 18: State Management",
       progress: 75,
-      image: "/ui/continue-1.png",
+      image: "/AI_Tutor_New_UI/Dashboard/react_fundamentals_logo.png",
       progressColor: "bg-orange-400"
     },
     {
@@ -148,7 +148,7 @@ const Dashboard = () => {
       title: "Python for AI",
       lesson: "Lesson 9: Neural Networks",
       progress: 45,
-      image: "/ui/continue-2.png",
+      image: "/AI_Tutor_New_UI/Dashboard/python_for_ai_logo.png",
       progressColor: "bg-orange-400"
     },
     {
@@ -156,7 +156,7 @@ const Dashboard = () => {
       title: "Digital Marketing",
       lesson: "Lesson 27: SEO Optimization",
       progress: 90,
-      image: "/ui/continue-3.png",
+      image: "/AI_Tutor_New_UI/Dashboard/logo.png",
       progressColor: "bg-cyan-600"
     }
   ]
